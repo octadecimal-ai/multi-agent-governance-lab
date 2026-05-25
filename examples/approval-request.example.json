@@ -1,0 +1,11 @@
+{
+  "request_id": "req_20260525_120000_demo",
+  "actor": "agent-developer-demo",
+  "action": "write_repository_file",
+  "risk": "medium",
+  "target": "docs/governance-overview.md",
+  "reason": "Update public documentation with reviewed governance pattern.",
+  "approval_required": false,
+  "created_at": "2026-05-25T12:00:00+02:00"
+}
+

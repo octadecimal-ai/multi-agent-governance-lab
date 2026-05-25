@@ -1,0 +1,21 @@
+version: 1
+escalations:
+  blocked_task:
+    condition: status == "BLOCKED" and age > "4h"
+    action: notify_supervisor
+  overdue_task:
+    condition: deadline_missed == true
+    action: mark_overdue_and_notify
+  unknown_action:
+    condition: executor.action not in allowlist
+    action: fail_request_and_audit
+  repeated_tool_failure:
+    condition: same_tool_failures >= 3
+    action: pause_and_request_review
+  policy_change:
+    condition: guardrail_config_changed == true
+    action: require_human_review
+  secret_access:
+    condition: tool == "resolve_secret"
+    action: require_approval_and_log_metadata
+

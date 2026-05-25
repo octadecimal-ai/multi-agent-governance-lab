@@ -1,0 +1,36 @@
+version: 1
+risk_levels:
+  low:
+    description: Read-only inspection or local formatting.
+    approval_required: false
+  medium:
+    description: Writes inside repository, dependency updates, non-destructive automation.
+    approval_required: conditional
+  high:
+    description: Privileged commands, network publication, permission changes, secret access.
+    approval_required: true
+  critical:
+    description: Destructive filesystem, disk operations, credential rotation, production changes.
+    approval_required: true
+    human_only: true
+
+tools:
+  read_file:
+    risk: low
+  list_directory:
+    risk: low
+  run_tests:
+    risk: medium
+  write_repository_file:
+    risk: medium
+  git_push_public:
+    risk: high
+  change_permissions:
+    risk: high
+  resolve_secret:
+    risk: high
+  run_sudo_command:
+    risk: critical
+  erase_disk:
+    risk: critical
+

@@ -1,0 +1,20 @@
+# Runtime and local state
+.env
+.env.*
+*.local
+.DS_Store
+node_modules/
+__pycache__/
+*.pyc
+
+# Secrets and generated artifacts
+secrets/
+*.key
+*.pem
+*.p12
+*.mobileconfig
+*.log
+*.jsonl.tmp
+runtime/
+reports/private/
+
